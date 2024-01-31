@@ -1,8 +1,10 @@
 package laddergame.model;
 
 public enum ErrorMessage {
-  NOT_IN_RANGE("[ERROR] 참여자의 이름은 5글자 이하여야 합니다."),
-  CONTAINS_SPACE("[ERROR] 이름에는 공백이 포함될 수 없습니다.");
+  NOT_IN_RANGE_PARTICIPANT_NAME("[ERROR] 참여자의 이름은 5글자 이하여야 합니다."),
+  CONTAINS_SPACE_PARTICIPANT_NAME("[ERROR] 참여자의 이름에는 공백이 포함될 수 없습니다."),
+  LESS_THAN_TWO_PARTICIPANTS("[ERROR] 참여자는 2명 이상이어야 합니다."),
+  DUPLICATE_PARTICIPANTS("[ERROR] 중복된 참여자가 있습니다.");
 
   private final String message;
 

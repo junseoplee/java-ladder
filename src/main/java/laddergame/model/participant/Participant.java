@@ -15,17 +15,17 @@ public class Participant {
 
   private void validateParticipantNameLength(String inputName) {
     if (inputName.length() > MAX_NAME_LENGTH) {
-      throw new IllegalArgumentException(ErrorMessage.NOT_IN_RANGE.getMessage());
+      throw new IllegalArgumentException(ErrorMessage.NOT_IN_RANGE_PARTICIPANT_NAME.getMessage());
     }
   }
 
   private void validateParticipantNameBlank(String inputName) {
     if (inputName.isBlank()) {
-      throw new IllegalArgumentException(ErrorMessage.CONTAINS_SPACE.getMessage());
+      throw new IllegalArgumentException(ErrorMessage.CONTAINS_SPACE_PARTICIPANT_NAME.getMessage());
     }
   }
 
-  public String getparticipantName() {
+  public String getParticipantName() {
     return participantName;
   }
 }
