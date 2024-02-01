@@ -9,13 +9,7 @@ import laddergame.model.participant.Participants;
 
 public class LadderGenerator {
 
-  private final RungCreateDecider rungCreateDecider;
-
-  public LadderGenerator(RungCreateDecider rungCreateDecider) {
-    this.rungCreateDecider = rungCreateDecider;
-  }
-
-  public Ladder generateLadder(Participants participants, Height height) {
+  public Ladder generateLadder(Participants participants, Height height, RungCreateDecider rungCreateDecider) {
     return new Ladder(
         IntStream.range(0, height.getHeight())
             .mapToObj(index -> new Rung(participants, rungCreateDecider))

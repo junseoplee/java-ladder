@@ -27,9 +27,9 @@ class LadderGeneratorTest {
     Height height = new Height(2);
     List<Boolean> test = newArrayList(true, false, false, true);
     RungCreateDecider rungCreateDecider = new TestRungCreateDecider(test);
-    LadderGenerator ladderGenerator = new LadderGenerator(rungCreateDecider);
+    LadderGenerator ladderGenerator = new LadderGenerator();
     // when
-    Ladder ladder = ladderGenerator.generateLadder(participants, height);
+    Ladder ladder = ladderGenerator.generateLadder(participants, height, rungCreateDecider);
     // then
     assertThat(ladder.getRungs().get(0).getRungPoints()).containsExactly(true, false);
     assertThat(ladder.getRungs().get(1).getRungPoints()).containsExactly(false, true);
