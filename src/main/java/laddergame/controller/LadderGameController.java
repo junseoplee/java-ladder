@@ -5,7 +5,7 @@ import laddergame.model.ErrorMessage;
 import laddergame.model.LadderGenerator;
 import laddergame.model.ladder.Height;
 import laddergame.model.ladder.Ladder;
-import laddergame.model.ladder.RungCreateDecider;
+import laddergame.model.RungCreateDecider;
 import laddergame.model.participant.Participant;
 import laddergame.model.participant.Participants;
 import laddergame.view.InputView;
@@ -13,10 +13,19 @@ import laddergame.view.OutputView;
 
 public class LadderGameController {
 
-  private final InputView inputView = new InputView();
-  private final OutputView outputView = new OutputView();
-  private final RungCreateDecider rungCreateDecider = new RungCreateDecider();
-  private final LadderGenerator ladderGenerator = new LadderGenerator();
+  private final InputView inputView;
+  private final OutputView outputView;
+  private final RungCreateDecider rungCreateDecider;
+  private final LadderGenerator ladderGenerator;
+
+  public LadderGameController(
+      InputView inputView, OutputView outputView,
+      RungCreateDecider rungCreateDecider, LadderGenerator ladderGenerator) {
+    this.inputView = inputView;
+    this.outputView = outputView;
+    this.rungCreateDecider = rungCreateDecider;
+    this.ladderGenerator = ladderGenerator;
+  }
 
   public void runLadderGame() {
     Participants participants = receiveParticipants();
