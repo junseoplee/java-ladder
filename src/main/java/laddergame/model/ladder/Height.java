@@ -7,6 +7,7 @@ public class Height {
   private static final int MIN_HEIGHT = 2;
 
   private final int height;
+  
   public Height(int receivedHeight) {
     validateHeight(receivedHeight);
     this.height = receivedHeight;
