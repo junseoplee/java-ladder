@@ -1,8 +1,8 @@
 package laddergame.view;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 public class InputView {
 
@@ -12,7 +12,7 @@ public class InputView {
     Scanner scanner = new Scanner(System.in);
     String inputNames = scanner.nextLine();
 
-    List<String> receivedNames = Arrays.stream(inputNames.split(","))
+    List<String> receivedNames = Stream.of(inputNames.split(","))
         .map(String::trim)
         .toList();
     return receivedNames;
