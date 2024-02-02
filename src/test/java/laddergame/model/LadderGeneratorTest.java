@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Stream;
 import laddergame.model.ladder.Height;
 import laddergame.model.ladder.Ladder;
-import laddergame.model.ladder.RungCreateDecider;
 import laddergame.model.participant.Participant;
 import laddergame.model.participant.Participants;
 import org.junit.jupiter.api.DisplayName;
