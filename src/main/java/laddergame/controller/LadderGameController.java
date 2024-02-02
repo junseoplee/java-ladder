@@ -19,14 +19,14 @@ public class LadderGameController {
   private final LadderGenerator ladderGenerator = new LadderGenerator();
 
   public void runLadderGame() {
-    Participants participants = createParticipants();
-    Height height = createHeight();
+    Participants participants = receiveParticipants();
+    Height height = receiveHeight();
     Ladder ladder = ladderGenerator.generateLadder(participants, height, rungCreateDecider);
 
     outputView.printResult(participants, ladder);
   }
 
-  private Participants createParticipants() {
+  private Participants receiveParticipants() {
     try {
       List<String> receivedNames = inputView.receiveNames();
       return new Participants(receivedNames.stream()
@@ -34,20 +34,20 @@ public class LadderGameController {
           .toList());
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
-      return createParticipants();
+      return receiveParticipants();
     }
   }
 
-  private Height createHeight() {
+  private Height receiveHeight() {
     try {
       int receivedColumn = inputView.receiveHeight();
       return new Height(receivedColumn);
     } catch (NumberFormatException exception) {
       System.out.println(ErrorMessage.NOT_A_NUMBER.getMessage());
-      return createHeight();
+      return receiveHeight();
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
-      return createHeight();
+      return receiveHeight();
     }
   }
 }
