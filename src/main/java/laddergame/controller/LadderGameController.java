@@ -5,7 +5,7 @@ import laddergame.model.ErrorMessage;
 import laddergame.model.LadderGenerator;
 import laddergame.model.ladder.Height;
 import laddergame.model.ladder.Ladder;
-import laddergame.model.RungCreateDecider;
+import laddergame.model.RungCreateDecider.RungCreateDecider;
 import laddergame.model.participant.Participant;
 import laddergame.model.participant.Participants;
 import laddergame.view.InputView;

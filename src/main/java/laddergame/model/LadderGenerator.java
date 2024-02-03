@@ -2,6 +2,7 @@ package laddergame.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import laddergame.model.RungCreateDecider.RungCreateDecider;
 import laddergame.model.ladder.Height;
 import laddergame.model.ladder.Ladder;
 import laddergame.model.ladder.Rung;

@@ -5,7 +5,7 @@ import static org.assertj.core.util.Lists.newArrayList;
 
 import java.util.List;
 import java.util.stream.Stream;
-import laddergame.model.RungCreateDecider;
+import laddergame.model.TestRungCreateDecider;
 import laddergame.model.participant.Participant;
 import laddergame.model.participant.Participants;
 import org.junit.jupiter.api.DisplayName;
@@ -43,19 +43,5 @@ class RungTest {
 
     //then
     assertThat(rung.getRungPoints()).containsExactly(true, false, false, true);
-  }
-
-  static class TestRungCreateDecider extends RungCreateDecider {
-
-    private final List<Boolean> isCreated;
-
-    TestRungCreateDecider(List<Boolean> isCreated) {
-      this.isCreated = isCreated;
-    }
-
-    @Override
-    public boolean decide() {
-      return isCreated.remove(0);
-    }
   }
 }
