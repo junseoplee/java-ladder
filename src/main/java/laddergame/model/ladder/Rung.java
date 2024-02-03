@@ -3,7 +3,7 @@ package laddergame.model.ladder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import laddergame.model.RungCreateDecider;
+import laddergame.model.RungCreateDecider.RungCreateDecider;
 import laddergame.model.participant.Participants;
 
 public class Rung {
