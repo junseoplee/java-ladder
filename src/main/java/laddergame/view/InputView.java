@@ -24,4 +24,15 @@ public class InputView {
 
     return Integer.parseInt(scanner.nextLine().trim());
   }
+
+  public List<String> receivePrizes() {
+    System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+
+    Scanner scanner = new Scanner(System.in);
+    String inputPrizes = scanner.nextLine();
+
+    return Stream.of(inputPrizes.split(","))
+                 .map(String::trim)
+                 .toList();
+  }
 }
