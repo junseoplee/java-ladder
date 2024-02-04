@@ -12,18 +12,16 @@ public class InputView {
     Scanner scanner = new Scanner(System.in);
     String inputNames = scanner.nextLine();
 
-    List<String> receivedNames = Stream.of(inputNames.split(","))
-        .map(String::trim)
-        .toList();
-    return receivedNames;
+    return Stream.of(inputNames.split(","))
+                 .map(String::trim)
+                 .toList();
   }
 
   public int receiveHeight() {
     System.out.println("최대 사다리 높이는 몇 개 인가요?");
 
     Scanner scanner = new Scanner(System.in);
-    int inputHeight = Integer.parseInt(scanner.nextLine().trim());
 
-    return inputHeight;
+    return Integer.parseInt(scanner.nextLine().trim());
   }
 }
