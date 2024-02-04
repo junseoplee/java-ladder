@@ -35,4 +35,12 @@ public class InputView {
                  .map(String::trim)
                  .toList();
   }
+
+  public String receiveTargetParticipant() {
+    System.out.println("결과를 보고 싶은 사람은?");
+
+    Scanner scanner = new Scanner(System.in);
+
+    return scanner.nextLine().trim();
+  }
 }
