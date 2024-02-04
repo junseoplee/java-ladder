@@ -10,6 +10,6 @@ public class RandomRungCreateDecider implements RungCreateDecider {
   @Override
   public boolean decide () {
       int number = random.nextInt(MAX_RANDOM_RANGE);
-      return number >= MAX_RANDOM_RANGE / 2;
+      return number == 0;
   }
 }
