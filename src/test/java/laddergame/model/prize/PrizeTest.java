@@ -19,4 +19,11 @@ class PrizeTest {
     assertThatThrownBy(() -> new Prize("banana"))
         .isInstanceOf(IllegalArgumentException.class);
   }
+
+  @Test
+  @DisplayName("결과에_all_이_포함되는_경우_예외_처리한다")
+  void 결과에_all_이_포함되는_경우_예외_처리한다() {
+    assertThatThrownBy(() -> new Prize("all"))
+      .isInstanceOf(IllegalArgumentException.class);
+  }
 }
