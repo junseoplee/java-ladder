@@ -4,11 +4,19 @@ import laddergame.model.ErrorMessage;
 
 public class Prize {
 
+  private static final int MAX_PRIZE_LENGTH = 5;
   private final String prize;
 
   public Prize(String inputPrize) {
     validatePrizeNameBlank(inputPrize);
+    validatePrizeNameLength(inputPrize);
     this.prize = inputPrize;
+  }
+
+  private void validatePrizeNameLength(String inputPrize) {
+    if (inputPrize.length() > MAX_PRIZE_LENGTH) {
+      throw new IllegalArgumentException(ErrorMessage.NOT_IN_RANGE_PRIZE.getMessage());
+    }
   }
 
   private void validatePrizeNameBlank(String inputPrize) {
