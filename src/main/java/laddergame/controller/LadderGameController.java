@@ -8,6 +8,8 @@ import laddergame.model.ladder.Ladder;
 import laddergame.model.RungCreateDecider.RungCreateDecider;
 import laddergame.model.participant.Participant;
 import laddergame.model.participant.Participants;
+import laddergame.model.prize.Prize;
+import laddergame.model.prize.Prizes;
 import laddergame.view.InputView;
 import laddergame.view.OutputView;
 
@@ -20,7 +22,8 @@ public class LadderGameController {
 
   public LadderGameController(
       InputView inputView, OutputView outputView,
-      RungCreateDecider rungCreateDecider, LadderGenerator ladderGenerator) {
+      RungCreateDecider rungCreateDecider, LadderGenerator ladderGenerator
+  ) {
     this.inputView = inputView;
     this.outputView = outputView;
     this.rungCreateDecider = rungCreateDecider;
@@ -31,6 +34,8 @@ public class LadderGameController {
     Participants participants = receiveParticipants();
     Height height = receiveHeight();
     Ladder ladder = ladderGenerator.generateLadder(participants, height, rungCreateDecider);
+    Prizes prizes = generatePrizes(participants);
+
 
     outputView.printResult(participants, ladder);
   }
@@ -38,9 +43,11 @@ public class LadderGameController {
   private Participants receiveParticipants() {
     try {
       List<String> receivedNames = inputView.receiveNames();
-      return new Participants(receivedNames.stream()
-          .map(Participant::new)
-          .toList());
+      return new Participants(
+          receivedNames.stream()
+                       .map(Participant::new)
+                       .toList()
+      );
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
       return receiveParticipants();
@@ -57,6 +64,20 @@ public class LadderGameController {
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
       return receiveHeight();
+    }
+  }
+
+  private Prizes generatePrizes(Participants participants) {
+    try {
+      List<String> receivedPrizes = inputView.receivePrizes();
+      return new Prizes(
+          receivedPrizes.stream()
+                        .map(Prize::new)
+                        .toList(), participants
+      );
+    } catch (IllegalArgumentException exception) {
+      System.out.println(exception.getMessage());
+      return generatePrizes(participants);
     }
   }
 }
