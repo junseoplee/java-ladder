@@ -8,12 +8,12 @@ import laddergame.model.participant.Participants;
 public class Prizes {
 
   private final List<Prize> prizes;
-  public Prizes(Participants participants, List<Prize> prizes) {
-    validateDuplicate(participants, prizes);
+  public Prizes(List<Prize> prizes, Participants participants) {
+    validateDuplicate(prizes, participants);
     this.prizes = prizes;
   }
 
-  private void validateDuplicate(Participants participants, List<Prize> prizes) {
+  private void validateDuplicate(List<Prize> prizes, Participants participants) {
     if (participants.getParticipants().size() != prizes.size()) {
       throw new IllegalArgumentException(ErrorMessage.MISMATCH_COUNT.getMessage());
     }
