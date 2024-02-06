@@ -12,4 +12,11 @@ class PrizeTest {
     assertThatThrownBy(() -> new Prize(" "))
         .isInstanceOf(IllegalArgumentException.class);
   }
+
+  @Test
+  @DisplayName("결과가_5글자를_초과하면_예외_처리한다")
+  void 결과가_5글자를_초과하면_예외_처리한다() {
+    assertThatThrownBy(() -> new Prize("banana"))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
 }
