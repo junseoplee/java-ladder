@@ -9,7 +9,8 @@ public enum ErrorMessage {
   NOT_IN_RANGE_HEIGHT("[ERROR] 사다리의 높이는 2 이상이어야 합니다."),
   NOT_IN_RANGE_PRIZE("[ERROR] 결과(상금)의 길이는 5 이하여야 합니다."),
   CONTAINS_SPACE_PRIZE("[ERROR] 결과(상금)에는 공백이 포함될 수 없습니다."),
-  CONTAINS_ALL_PRIZE("[ERROR] 결과(상금)에는 'all'이 포함될 수 없습니다.");
+  CONTAINS_ALL_PRIZE("[ERROR] 결과(상금)에는 'all'이 포함될 수 없습니다."),
+  MISMATCH_COUNT("[ERROR] 참여자의 수와 결과(상금)의 수가 일치해야 합니다.");
 
   private final String message;
 
