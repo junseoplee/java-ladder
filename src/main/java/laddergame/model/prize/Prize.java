@@ -8,18 +8,25 @@ public class Prize {
   private final String prize;
 
   public Prize(String inputPrize) {
-    validatePrizeNameBlank(inputPrize);
-    validatePrizeNameLength(inputPrize);
+    validatePrizeBlank(inputPrize);
+    validatePrizeLength(inputPrize);
+    validatePrizeContains(inputPrize);
     this.prize = inputPrize;
   }
 
-  private void validatePrizeNameLength(String inputPrize) {
+  private void validatePrizeContains(String inputPrize) {
+    if (inputPrize.contains("all")) {
+      throw new IllegalArgumentException(ErrorMessage.CONTAINS_ALL_PRIZE.getMessage());
+    }
+  }
+
+  private void validatePrizeLength(String inputPrize) {
     if (inputPrize.length() > MAX_PRIZE_LENGTH) {
       throw new IllegalArgumentException(ErrorMessage.NOT_IN_RANGE_PRIZE.getMessage());
     }
   }
 
-  private void validatePrizeNameBlank(String inputPrize) {
+  private void validatePrizeBlank(String inputPrize) {
     if (inputPrize.isBlank()) {
       throw new IllegalArgumentException(ErrorMessage.CONTAINS_SPACE_PRIZE.getMessage());
     }
