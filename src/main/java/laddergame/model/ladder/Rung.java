@@ -25,11 +25,15 @@ public class Rung {
     hasRungAtPoints.add(isLeftPointHasRung ? false : decided);
   }
 
-  private boolean isLeftPointHasRung(int pointIndex) {
+  public boolean isLeftPointHasRung(int pointIndex) {
     return pointIndex != FIRST_POINT_INDEX && hasRungAtPoints.get(pointIndex - 1);
   }
 
   public List<Boolean> getRungPoints() {
     return Collections.unmodifiableList(hasRungAtPoints);
+  }
+
+  public boolean isCurrentPointHasRung(int point) {
+    return hasRungAtPoints.get(point);
   }
 }
