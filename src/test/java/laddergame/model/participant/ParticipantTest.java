@@ -19,4 +19,11 @@ class ParticipantTest {
     assertThatThrownBy(() -> new Participant(" "))
         .isInstanceOf(IllegalArgumentException.class);
   }
+
+  @Test
+  @DisplayName("참여자의_이름에_all_이_포함되면_예외_처리한다")
+  void 참여자의_이름에_all_이_포함되면_예외_처리한다() {
+    assertThatThrownBy(() -> new Participant("all"))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
 }
