@@ -37,7 +37,7 @@ class ParticipantsTest {
               .map(Participant::new)
               .toList()
     );
-    assertThatThrownBy(() -> participants.findParticipant(new Participant("peach")))
+    assertThatThrownBy(() -> participants.findParticipant("peach"))
         .isInstanceOf(IllegalArgumentException.class);
   }
 }
