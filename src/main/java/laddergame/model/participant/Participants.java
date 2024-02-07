@@ -27,6 +27,13 @@ public class Participants {
     }
   }
 
+  public Participant findParticipant(Participant selectcedParticipant) {
+    return participants.stream()
+                       .filter(participant -> participant.equals(selectcedParticipant))
+                       .findFirst()
+                       .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.MISMATCH_PARTICIPANT.getMessage()));
+  }
+
   public List<Participant> getParticipants() {
     return new ArrayList<>(participants);
   }
