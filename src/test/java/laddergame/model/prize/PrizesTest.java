@@ -25,7 +25,7 @@ class PrizesTest {
                                .toList();
     //when
     //then
-    assertThatThrownBy(() -> new Prizes(participants, prizes))
+    assertThatThrownBy(() -> new Prizes(prizes, participants))
         .isInstanceOf(IllegalArgumentException.class);
   }
 }
