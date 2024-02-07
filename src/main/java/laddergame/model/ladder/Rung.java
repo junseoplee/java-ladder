@@ -1,7 +1,6 @@
 package laddergame.model.ladder;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import laddergame.model.RungCreateDecider.RungCreateDecider;
 import laddergame.model.participant.Participants;
@@ -30,7 +29,7 @@ public class Rung {
   }
 
   public List<Boolean> getRungPoints() {
-    return Collections.unmodifiableList(hasRungAtPoints);
+    return List.copyOf(hasRungAtPoints);
   }
 
   public boolean isCurrentPointHasRung(int point) {
