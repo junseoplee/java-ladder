@@ -28,4 +28,16 @@ class ParticipantsTest {
     assertThatThrownBy(() -> new Participants(oneParticipant))
         .isInstanceOf(IllegalArgumentException.class);
   }
+
+  @Test
+  @DisplayName("결과를_보고_싶은_사람이_일치하지_않는_경우_예외_처리한다")
+  void 결과를_보고_싶은_사람이_일치하지_않는_경우_예외_처리한다() {
+    Participants participants = new Participants(
+        Stream.of("apple", "mango", "grape")
+              .map(Participant::new)
+              .toList()
+    );
+    assertThatThrownBy(() -> participants.findParticipant(new Participant("peach")))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
 }
