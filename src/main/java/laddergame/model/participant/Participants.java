@@ -27,14 +27,18 @@ public class Participants {
     }
   }
 
-  public Participant findParticipant(Participant selectcedParticipant) {
+  public Participant findParticipant(String selectedParticipant) {
     return participants.stream()
-                       .filter(participant -> participant.equals(selectcedParticipant))
+                       .filter(participant -> participant.getParticipantName().equals(selectedParticipant))
                        .findFirst()
                        .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.MISMATCH_PARTICIPANT.getMessage()));
   }
 
   public List<Participant> getParticipants() {
     return new ArrayList<>(participants);
+  }
+
+  public int findPosition(Participant participant) {
+    return participants.indexOf(participant);
   }
 }

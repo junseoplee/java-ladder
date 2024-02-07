@@ -19,6 +19,10 @@ public class Prizes {
     }
   }
 
+  public Prize getPrize(int position) {
+    return prizes.get(position);
+  }
+
   public List<Prize> getPrizes() {
     return new ArrayList<>(prizes);
   }
