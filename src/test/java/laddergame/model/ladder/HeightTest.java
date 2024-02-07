@@ -13,5 +13,4 @@ class HeightTest {
     assertThatThrownBy(() -> new Height(1))
         .isInstanceOf(IllegalArgumentException.class);
   }
-
 }
