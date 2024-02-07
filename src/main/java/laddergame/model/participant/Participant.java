@@ -10,6 +10,7 @@ public class Participant {
   public Participant(String inputName) {
     validateParticipantNameBlank(inputName);
     validateParticipantNameLength(inputName);
+    validateParticipantNameContains(inputName);
     this.participantName = inputName;
   }
 
@@ -22,6 +23,12 @@ public class Participant {
   private void validateParticipantNameBlank(String inputName) {
     if (inputName.isBlank()) {
       throw new IllegalArgumentException(ErrorMessage.CONTAINS_SPACE_PARTICIPANT_NAME.getMessage());
+    }
+  }
+
+  private void validateParticipantNameContains(String inputName) {
+    if (inputName.equals("all")) {
+      throw new IllegalArgumentException(ErrorMessage.CONTAINS_ALL_PARTICIPANT_NAME.getMessage());
     }
   }
 
