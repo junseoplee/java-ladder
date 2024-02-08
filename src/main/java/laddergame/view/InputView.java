@@ -18,7 +18,7 @@ public class InputView {
   }
 
   public int receiveHeight() {
-    System.out.println("최대 사다리 높이는 몇 개 인가요?");
+    System.out.println("\n최대 사다리 높이는 몇 개 인가요?");
 
     Scanner scanner = new Scanner(System.in);
 
@@ -26,7 +26,7 @@ public class InputView {
   }
 
   public List<String> receivePrizes() {
-    System.out.println("실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
+    System.out.println("\n실행 결과를 입력하세요. (결과는 쉼표(,)로 구분하세요)");
 
     Scanner scanner = new Scanner(System.in);
     String inputPrizes = scanner.nextLine();
@@ -37,7 +37,7 @@ public class InputView {
   }
 
   public String receiveTargetParticipant() {
-    System.out.println("결과를 보고 싶은 사람은?");
+    System.out.println("\n\n결과를 보고 싶은 사람은?");
 
     Scanner scanner = new Scanner(System.in);
 
