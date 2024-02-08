@@ -21,7 +21,7 @@ public class Rung {
 
   private void createRungAtPoint(int pointIndex, boolean decided) {
     boolean isLeftPointHasRung = isLeftPointHasRung(pointIndex);
-    hasRungAtPoints.add(isLeftPointHasRung ? false : decided);
+    hasRungAtPoints.add(!isLeftPointHasRung && decided);
   }
 
   public boolean isLeftPointHasRung(int pointIndex) {
