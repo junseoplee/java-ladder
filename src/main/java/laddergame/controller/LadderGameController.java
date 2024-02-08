@@ -3,6 +3,7 @@ package laddergame.controller;
 import java.util.List;
 import laddergame.model.ErrorMessage;
 import laddergame.model.LadderGenerator;
+import laddergame.model.ResultCalculator;
 import laddergame.model.ladder.Height;
 import laddergame.model.ladder.Ladder;
 import laddergame.model.RungCreateDecider.RungCreateDecider;
@@ -38,7 +39,8 @@ public class LadderGameController {
 
     outputView.printLadder(participants, ladder, prizes);
 
-    outputView.printResult(participants, ladder);
+    ResultCalculator resultCalculator = new ResultCalculator(participants, ladder, prizes);
+    showResultsForParticipants(resultCalculator, participants);
   }
 
   private Participants receiveParticipants() {
@@ -79,6 +81,38 @@ public class LadderGameController {
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
       return receivePrizes(participants);
+    }
+  }
+
+  private void showResultsForParticipants(ResultCalculator resultCalculator, Participants participants) {
+    boolean continueShowingResults = true;
+    while (continueShowingResults) {
+      String targetParticipant = inputView.receiveTargetParticipant();
+      if (targetParticipant.equalsIgnoreCase("all")) {
+        showResultsForAllParticipants(resultCalculator, participants);
+        continueShowingResults = false;
+      } else {
+        showResultForTargetParticipant(targetParticipant, resultCalculator);
+      }
+    }
+  }
+
+  private void showResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
+    outputView.printResultMessage();
+    for (Participant participant : participants.getParticipants()) {
+      Prize prize = resultCalculator.getPrizeFor(participant.getParticipantName());
+      outputView.printResult(participant, prize);
+    }
+  }
+
+
+  private void showResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
+    Prize prize;
+    try {
+      prize = resultCalculator.getPrizeFor(selectedParticipant);
+      outputView.printResult(prize);
+    } catch (IllegalArgumentException exception) {
+      System.out.println(exception.getMessage());
     }
   }
 }
