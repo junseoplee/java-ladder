@@ -40,7 +40,7 @@ public class LadderGameController {
     outputView.printLadder(participants, ladder, prizes);
 
     ResultCalculator resultCalculator = new ResultCalculator(participants, ladder, prizes);
-    showResultsForParticipants(resultCalculator, participants);
+    printResultsForParticipants(resultCalculator, participants);
   }
 
   private Participants receiveParticipants() {
@@ -84,20 +84,26 @@ public class LadderGameController {
     }
   }
 
-  private void showResultsForParticipants(ResultCalculator resultCalculator, Participants participants) {
+  private void printResultsForParticipants(ResultCalculator resultCalculator, Participants participants) {
     boolean continueShowingResults = true;
     while (continueShowingResults) {
       String targetParticipant = inputView.receiveTargetParticipant();
-      if (targetParticipant.equalsIgnoreCase("all")) {
-        showResultsForAllParticipants(resultCalculator, participants);
-        continueShowingResults = false;
-      } else {
-        showResultForTargetParticipant(targetParticipant, resultCalculator);
-      }
+      continueShowingResults = handleParticipantSelection(targetParticipant, resultCalculator, participants);
     }
   }
 
-  private void showResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
+  private boolean handleParticipantSelection(String targetParticipant, ResultCalculator resultCalculator, Participants participants) {
+    if (targetParticipant.equalsIgnoreCase("all")) {
+      printResultsForAllParticipants(resultCalculator, participants);
+      return false;
+    }
+    printResultForTargetParticipant(targetParticipant, resultCalculator);
+    return true;
+  }
+
+
+
+  private void printResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
     outputView.printResultMessage();
     for (Participant participant : participants.getParticipants()) {
       Prize prize = resultCalculator.getPrizeFor(participant.getParticipantName());
@@ -105,8 +111,7 @@ public class LadderGameController {
     }
   }
 
-
-  private void showResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
+  private void printResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
     Prize prize;
     try {
       prize = resultCalculator.getPrizeFor(selectedParticipant);
