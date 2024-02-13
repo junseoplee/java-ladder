@@ -10,7 +10,9 @@ import laddergame.model.prize.Prizes;
 public class OutputView {
 
   public void printLadder(Participants participants, Ladder ladder, Prizes prizes) {
-    System.out.println("\n사다리 결과\n");
+    System.out.println(System.lineSeparator());
+    System.out.println("사다리 결과");
+    System.out.println(System.lineSeparator());
     printParticipantsName(
         participants.getParticipants()
                     .stream()
@@ -27,7 +29,8 @@ public class OutputView {
   }
 
   public void printResult(Prize prize) {
-    System.out.println("\n실행 결과");
+    System.out.println(System.lineSeparator());
+    System.out.println("실행 결과");
     System.out.print(prize.getPrize());
   }
 
@@ -36,7 +39,8 @@ public class OutputView {
   }
 
   public void printResultMessage() {
-    System.out.println("\n실행 결과");
+    System.out.println(System.lineSeparator());
+    System.out.println("실행 결과");
   }
 
   private void printParticipantsName(List<String> participantNames) {
