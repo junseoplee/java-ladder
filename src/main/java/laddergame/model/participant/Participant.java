@@ -1,5 +1,7 @@
 package laddergame.model.participant;
 
+import static laddergame.model.prize.Prize.FORBIDDEN_WORD;
+
 import laddergame.model.ErrorMessage;
 
 public class Participant {
@@ -27,7 +29,7 @@ public class Participant {
   }
 
   private void validateParticipantNameContains(String inputName) {
-    if (inputName.equals("all")) {
+    if (inputName.equals(FORBIDDEN_WORD)) {
       throw new IllegalArgumentException(ErrorMessage.CONTAINS_ALL_PARTICIPANT_NAME.getMessage());
     }
   }
