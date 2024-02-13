@@ -114,9 +114,8 @@ public class LadderGameController {
   }
 
   private void printResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
-    Prize prize;
     try {
-      prize = resultCalculator.getPrizeFor(selectedParticipant);
+      Prize prize = resultCalculator.getPrizeFor(selectedParticipant);
       outputView.printResult(prize);
     } catch (IllegalArgumentException exception) {
       System.out.println(exception.getMessage());
