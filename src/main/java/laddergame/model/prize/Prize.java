@@ -4,7 +4,9 @@ import laddergame.model.ErrorMessage;
 
 public class Prize {
 
+  public static final String FORBIDDEN_WORD = "all";
   private static final int MAX_PRIZE_LENGTH = 5;
+
   private final String prize;
 
   public Prize(String inputPrize) {
@@ -15,7 +17,7 @@ public class Prize {
   }
 
   private void validatePrizeContains(String inputPrize) {
-    if (inputPrize.contains("all")) {
+    if (inputPrize.contains(FORBIDDEN_WORD)) {
       throw new IllegalArgumentException(ErrorMessage.CONTAINS_ALL_PRIZE.getMessage());
     }
   }

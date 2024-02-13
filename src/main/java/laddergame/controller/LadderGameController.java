@@ -1,5 +1,7 @@
 package laddergame.controller;
 
+import static laddergame.model.prize.Prize.FORBIDDEN_WORD;
+
 import java.util.List;
 import laddergame.model.ErrorMessage;
 import laddergame.model.LadderGenerator;
@@ -93,7 +95,7 @@ public class LadderGameController {
   }
 
   private boolean handleParticipantSelection(String targetParticipant, ResultCalculator resultCalculator, Participants participants) {
-    if (targetParticipant.equalsIgnoreCase("all")) {
+    if (targetParticipant.equalsIgnoreCase(FORBIDDEN_WORD)) {
       printResultsForAllParticipants(resultCalculator, participants);
       return false;
     }
