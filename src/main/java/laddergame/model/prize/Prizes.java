@@ -8,6 +8,7 @@ import laddergame.model.participant.Participants;
 public class Prizes {
 
   private final List<Prize> prizes;
+
   public Prizes(List<Prize> prizes, Participants participants) {
     validateDuplicate(prizes, participants);
     this.prizes = prizes;
