@@ -13,7 +13,7 @@ import laddergame.model.participant.Participants;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class LadderGeneratorTest {
+class LadderGeneratorTest {
 
   @Test
   @DisplayName("사다리를 생성하는지 테스트한다.")
