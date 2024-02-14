@@ -3,6 +3,7 @@ package laddergame.controller;
 import static laddergame.model.prize.Prize.FORBIDDEN_WORD;
 
 import java.util.List;
+import java.util.Map;
 import laddergame.model.ErrorMessage;
 import laddergame.model.LadderGenerator;
 import laddergame.model.ResultCalculator;
@@ -105,13 +106,15 @@ public class LadderGameController {
 
 
 
-  private void printResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
+  public void printResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
     outputView.printResultMessage();
+    Map<Participant, Prize> results = resultCalculator.getResult();
+
     for (Participant participant : participants.getParticipants()) {
-      Prize prize = resultCalculator.getPrizeFor(participant.getParticipantName());
-      outputView.printResult(participant, prize);
+      outputView.printResult(participant, results.get(participant));
     }
   }
+
 
   private void printResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
     try {
