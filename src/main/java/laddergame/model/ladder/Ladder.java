@@ -19,16 +19,19 @@ public class Ladder {
   }
 
   private int findNextColumn(Rung rung, int position) {
-    if (canGoLeft(rung, position)) {
-      position--;
-      return position;
+    int updatedPosition = position;
+
+    if (canGoLeft(rung, updatedPosition)) {
+      updatedPosition--;
+      return updatedPosition;
     }
-    if (canGoRight(rung, position)) {
-      position++;
-      return position;
+    if (canGoRight(rung, updatedPosition)) {
+      updatedPosition++;
+      return updatedPosition;
     }
-    return position;
+    return updatedPosition;
   }
+
 
   private boolean canGoLeft(Rung rung, int position) {
     return rung.isLeftPointHasRung(position);
