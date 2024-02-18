@@ -30,7 +30,7 @@ public class Participants {
   public Participant findParticipant(String selectedParticipant) {
     return participants.stream()
                        .filter(participant -> participant.getParticipantName().equals(selectedParticipant))
-                       .findFirst()
+                       .findAny()
                        .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.MISMATCH_PARTICIPANT.getMessage()));
   }
 
