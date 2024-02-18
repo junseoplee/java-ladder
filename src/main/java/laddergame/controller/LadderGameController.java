@@ -104,8 +104,6 @@ public class LadderGameController {
     return true;
   }
 
-
-
   public void printResultsForAllParticipants(ResultCalculator resultCalculator, Participants participants) {
     outputView.printResultMessage();
     Map<Participant, Prize> results = resultCalculator.getResult();
@@ -114,7 +112,6 @@ public class LadderGameController {
       outputView.printResult(participant, results.get(participant));
     }
   }
-
 
   private void printResultForTargetParticipant(String selectedParticipant, ResultCalculator resultCalculator) {
     try {
